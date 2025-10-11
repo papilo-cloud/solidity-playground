@@ -1,11 +1,11 @@
 # 🧠 Solidity Playground
 
-A curated collection of smart contracts written in Solidity — covering foundational, intermediate, and advanced blockchain concepts.  
+A curated collection of smart contracts written in Solidity, covering foundational, intermediate, and advanced blockchain concepts.  
 This repository is designed for developers who want to **learn**, **experiment**, or **reference** real-world examples of decentralized logic on Ethereum.
 
 ---
 
-## 🚀 What's Inside
+## What's Inside
 
 | Category | Description |
 |-----------|-------------|
@@ -18,18 +18,19 @@ This repository is designed for developers who want to **learn**, **experiment**
 | `Dead-man/` | Dead man switch contract for automated fund transfer |
 | `Party-Split/` | Split payments among multiple addresses |
 | `token-standards-erc20/` | Extended ERC20 standard variations |
+| `Vault/` | A simple vault that issues claim tokens to users who deposit tokens into the vault |
 
 ---
 
-## 🧩 Key Features
+## Key Features
 - ✅ Beginner-friendly examples
-- 🔒 Security-conscious patterns (e.g., multisig, access control)
-- 💸 Realistic use cases (crowdfunding, inheritance, splitting funds)
-- 🧱 Modular structure for easy reuse
+- ✅ Security-conscious patterns (e.g., multisig, access control)
+- ✅ Realistic use cases (crowdfunding, inheritance, splitting funds)
+- Modular structure for easy reuse
 
 ---
 
-## 🛠️ Getting Started
+## Getting Started
 
 1. Clone the repository  
    ```bash

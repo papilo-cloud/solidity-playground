@@ -1,0 +1,15 @@
+{
+  "name": "fundamentals",
+  "version": "1.0.0",
+  "description": "A curated collection of smart contracts written in Solidity, covering foundational, intermediate, and advanced blockchain concepts.  \r This repository is designed for developers who want to **learn**, **experiment**, or **reference** real-world examples of decentralized logic on Ethereum.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0"
+  }
+}
