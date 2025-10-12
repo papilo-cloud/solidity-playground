@@ -17,7 +17,7 @@ This repository is designed for developers who want to **learn**, **experiment**
 | `Inheritance/` | Solidity inheritance and access control |
 | `Dead-man/` | Dead man switch contract for automated fund transfer |
 | `Party-Split/` | Split payments among multiple addresses |
-| `token-standards-erc20/` | Extended ERC20 standard variations |
+| `ICO/` | This is an ERC20 smart contract that functions as a simple ICO token smart contract |
 | `Vault/` | A simple vault that issues claim tokens to users who deposit tokens into the vault |
 
 ---
