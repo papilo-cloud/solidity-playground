@@ -19,7 +19,7 @@ This repository is designed for developers who want to **learn**, **experiment**
 | `Party-Split/` | Split payments among multiple addresses |
 | `ICO/` | This is an ERC20 smart contract that functions as a simple ICO token smart contract |
 | `Vault/` | A simple vault that issues claim tokens to users who deposit tokens into the vault |
-| `Vault/` | Simple voting system |
+| `Voting/` | Simple voting system |
 
 ---
 
