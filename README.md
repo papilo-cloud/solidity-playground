@@ -21,6 +21,7 @@ This repository is designed for developers who want to **learn**, **experiment**
 | `Vault/` | A simple vault that issues claim tokens to users who deposit tokens into the vault |
 | `Voting/` | A simple contract where users can create proposals and vote on them |
 | `Escrow/` | An escrow service where a buyer deposits ETH, and the seller can claim it after the buyer approves. |
+| `NFT Marketplace/` | A marketplace where users can list, buy, and cancel NFT listings. Using ERC721 standard. |
 
 ---
 
