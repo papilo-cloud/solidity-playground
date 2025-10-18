@@ -45,7 +45,7 @@ contract TokenVesting {
         _;
     }
 
-    modifier isValidSchedule(scheduleIndex) {
+    modifier isValidSchedule(uint256 scheduleIndex) {
         require(scheduleIndex < schedules[msg.sender].length, "Invalid schedule");
         _;
     }
@@ -119,7 +119,7 @@ contract TokenVesting {
         }
     }
 
-    function getScheduleCount(address _beneficiary) edxternal view returns (uint256) {
+    function getScheduleCount(address _beneficiary) external view returns (uint256) {
         return schedules[_beneficiary].length;
     }
 
