@@ -74,7 +74,7 @@ contract NFTMarketplace {
         external
         isOwner(_nftAddress, msg.sender, _tokenId)
     {
-        require(_proce > 0, "Price must be > 0");
+        require(_price > 0, "Price must be > 0");
 
         uint256 count = listingCount;
         listedItems[count] = Listing(
