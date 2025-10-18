@@ -65,8 +65,7 @@ contract NFTMarketplace {
     }
 
     modifier isListed(uint256 listingId) {
-        Listing storage listing = listedItems[listingId];
-        require(listingId < listing.id, "NFT not listed");
+        require(listingId < listingCount, "NFT not listed");
         _;
     }
 
