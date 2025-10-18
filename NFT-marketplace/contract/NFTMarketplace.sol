@@ -2,6 +2,7 @@
 pragma solidity ^0.8.20;
 
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import {MockNFT} from "./MockNft.sol";
 
 contract NFTMarketplace {
     struct Listing {
@@ -73,6 +74,8 @@ contract NFTMarketplace {
         external
         isOwner(_nftAddress, msg.sender, _tokenId)
     {
+        require(_proce > 0, "Price must be > 0");
+
         uint256 count = listingCount;
         listedItems[count] = Listing(
             count,
@@ -103,13 +106,13 @@ contract NFTMarketplace {
         proceeds[listing.seller] += sellerAmount;
         totalFees += fees;
 
-        delete listedItems[_listingId];
-
-        IERC721(listing.nftAddress).safeTransferFrom(
+        IERC721(listing.nftAddress).transferFrom(
             listing.seller,
             msg.sender,
             listing.tokenId
         );
+
+        delete listedItems[_listingId];
 
         if (msg.value > listing.price) {
             (bool success, ) = payable(msg.sender).call{value: msg.value - listing.price}("");
