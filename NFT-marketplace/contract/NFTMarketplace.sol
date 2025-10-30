@@ -14,14 +14,14 @@ contract NFTMarketplace {
         bool isActive;
     }
 
-    uint256 public listingCount;
+    uint256 private listingCount;
     uint256 public marketplaceFeePercentage = 250; //2.5%
     uint256 public constant BASIS_POINTS = 10000;
-    uint256 public totalFees;
+    uint256 private totalFees;
     address public owner;
 
-    mapping(uint256 => Listing) public listedItems;
-    mapping(address => uint256) public proceeds;
+    mapping(uint256 => Listing) private listedItems;
+    mapping(address => uint256) private proceeds;
 
     event ItemListed(
         address indexed seller,
@@ -70,6 +70,11 @@ contract NFTMarketplace {
         _;
     }
 
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Not the owner");
+        _;
+    }
+
     function listNft(address _nftAddress, uint256 _tokenId, uint256 _price)
         external
         isOwner(_nftAddress, msg.sender, _tokenId)
@@ -112,23 +117,22 @@ contract NFTMarketplace {
             listing.tokenId
         );
 
-        delete listedItems[_listingId];
-
         if (msg.value > listing.price) {
             (bool success, ) = payable(msg.sender).call{value: msg.value - listing.price}("");
             require(success, "Balance not sent");
         }
 
         emit ItemSold(listing.seller, _listingId, msg.sender, listing.price);
+        delete listedItems[_listingId];
     }
 
     function cancelListing(uint256 _listingId) external isListed(_listingId) {
         Listing storage listing = listedItems[_listingId];
-        require(listing.seller == msg.sender, "NOt the seller");
+        require(listing.seller == msg.sender, "Not the seller");
         require(listing.isActive, "Not active");
 
-        delete listedItems[_listingId];
         emit ItemCancelled(msg.sender, _listingId, listing.tokenId);
+        delete listedItems[_listingId];
     }
 
     function updateListing(uint256 _listingId, uint256 _newPrice) external isListed(_listingId) {
@@ -141,8 +145,7 @@ contract NFTMarketplace {
         emit ItemUpdated(msg.sender, _listingId, listing.tokenId, _newPrice);
     }
 
-    function withdrawFees() external {
-        require(msg.sender == owner, "Not the owner");
+    function withdrawFees() external onlyOwner {
         require(totalFees > 0, "No fees");
 
         uint256 amount = totalFees;
@@ -165,8 +168,7 @@ contract NFTMarketplace {
         emit ProceedsWithdrawn(msg.sender, amount);
     }
 
-    function setMarketPlaceFee(uint256 _newFeeBps) external {
-        require(msg.sender == owner, "Not the owner");
+    function setMarketPlaceFee(uint256 _newFeeBps) external onlyOwner {
         require(_newFeeBps <= 1000, "Fee too high");
 
         marketplaceFeePercentage = _newFeeBps;
@@ -174,5 +176,17 @@ contract NFTMarketplace {
 
     function getListing(uint256 _listingId) external view isListed(_listingId) returns (Listing memory) {
         return listedItems[_listingId];
+    }
+
+    function getListingCount() external view returns (uint256) {
+        return listingCount;
+    }
+
+    function getSellerProceeds(address _seller) external view returns (uint256) {
+        return proceeds[_seller];
+    }
+
+    function getTotalFees() external view onlyOwner returns (uint256) {
+        return totalFees;
     }
 }
