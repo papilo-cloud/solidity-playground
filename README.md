@@ -23,6 +23,7 @@ This repository is designed for developers who want to **learn**, **experiment**
 | `Escrow/` | An escrow service where a buyer deposits ETH, and the seller can claim it after the buyer approves. |
 | `NFT Marketplace/` | A marketplace where users can list, buy, and cancel NFT listings. Using ERC721 standard. |
 | `Token-vesting/` | A vesting contract that releases ERC20 tokens gradually over time. |
+| `DAO/` | Token holders create and vote on proposals that execute on-chain actions. |
 
 ---
 
