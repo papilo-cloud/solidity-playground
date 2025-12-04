@@ -25,6 +25,7 @@ This repository is designed for developers who want to **learn**, **experiment**
 | `Token-vesting/` | A vesting contract that releases ERC20 tokens gradually over time. |
 | `DAO/` | Token holders create and vote on proposals that execute on-chain actions. |
 | `AMM/` | A decentralized exchange using the constant product formula (x * y = k). |
+| `FlashLoan/` | A lending pool offering flash loans (borrow and repay in same transaction). |
 
 ---
 
