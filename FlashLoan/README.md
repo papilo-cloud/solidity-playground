@@ -1,7 +1,18 @@
 # Flash Loan Provider
 
-### Concept
-A lending pool offering flash loans (borrow and repay in same transaction).
+## Overview
+Flash loans are uncollateralized loans that must be borrowed and repaid within a single transaction. This project implements a complete flash loan system with three main components:
+
+1. **FlashLoanProvider** - The lending pool contract
+2. **LoanToken** - An ERC20 token for testing
+3. **FlashBorrower** - A reference implementation for borrowing
+
+### Common Use Cases
+
+- **Arbitrage** - Exploit price differences across DEXs
+- **Collateral Swaps** - Change collateral without closing positions
+- **Liquidations** - Liquidate undercollateralized positions
+- **Refinancing** - Move debt between protocols
 
 ### Features
 - Users deposit tokens to earn interest
